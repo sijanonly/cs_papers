@@ -228,7 +228,10 @@ class LargeObjectRemoval:
               yy = q[0] - d_y
               xx = q[1] - d_x
               if xx < self.width and yy < self.height:
-                  self.image[p[0]-d_y, p[1]-d_x] = self.image[yy, xx]
+                try:
+                    self.image[p[0]-d_y, p[1]-d_x] = self.image[yy, xx]
+                except:
+                    pass
           
     def _update_confidence_and_mask(self):
         """
